@@ -18,9 +18,9 @@ class App
 
     public static function bootstrap()
     {
-        static::$router = new Router();
+        static::$router = new \Base\Router();
+        static::$db = new \Base\Db();
         static::$kernel = new Kernel();
-        static::$db = new Db();
 
     }
 

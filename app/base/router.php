@@ -1,4 +1,6 @@
 <?php
+namespace Base;
+
 class Router
 
 {
