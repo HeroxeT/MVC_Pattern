@@ -1,16 +1,17 @@
 <?php
+namespace Base;
 
 class Controller
 {
-    public function renderLayout($body)
+    public function renderLayout($body, $title)
     {
 
         ob_start();
-        require ROOTPATH . '\views\layout\layout.php';
+        require ROOTPATH . '\views\layout\main.php';
         return ob_get_clean();
 
     }
-    public function render($viewName, array $params = [])
+    public function render($viewName,$title, array $params = [])
     {
 
         $viewFile = ROOTPATH . '\views\\' . $viewName . '.php';
@@ -19,7 +20,7 @@ class Controller
         require $viewFile;
         $body = ob_get_clean();
         ob_end_clean();
-        return $this->renderLayout($body);
+        return $this->renderLayout($body, $title);
 
     }
 
