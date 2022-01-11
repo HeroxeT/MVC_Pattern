@@ -1,6 +1,5 @@
 <?php
-namespace App;
-use App;
+
 class Kernel
 {
     public $defaultControllerName = 'MainController';
@@ -17,12 +16,12 @@ class Kernel
     public function launchAction($controllerName, $actionName, $params)
     {
         $controllerName = empty($controllerName) ? $this->defaultControllerName : ucfirst($controllerName);
-        if (!file_exists(ROOTPATH.'\\app\controllers\\'.$controllerName . '.php')) {
+        if (!file_exists(ROOTPATH.'\controllers\\'.$controllerName . '.php')) {
         }
-        require_once ROOTPATH .'\\app\controllers\\'.$controllerName .'.php';
-        if (!class_exists("\\controllers\\" . ucfirst($controllerName))) {
+        require_once ROOTPATH .'\controllers\\'.$controllerName .'.php';
+        if (!class_exists("\controllers\\" . ucfirst($controllerName))) {
         }
-        $controllerName = "\\controllers\\" . ucfirst($controllerName);
+        $controllerName = "\controllers\\" . ucfirst($controllerName);
         $controller = new $controllerName;
         $actionName = empty($actionName) ? $this->defaultActionName : $actionName;
         if (!method_exists($controller, $actionName)) {

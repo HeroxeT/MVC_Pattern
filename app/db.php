@@ -1,8 +1,5 @@
 <?php
 
-namespace App;
-
-use App;
 
 class Db
 {
@@ -20,7 +17,7 @@ class Db
     protected function getPDOSettings()
     {
 
-        $config = include ROOTPATH.'/app/config/db.php';
+        $config = include ROOTPATH.'/config/db.php';
         $result['dsn'] = "{$config['type']}:host={$config['host']};dbname={$config['dbname']};charset={$config['charset']}";
         $result['user'] = $config['user'];
         $result['pass'] = $config['pass'];

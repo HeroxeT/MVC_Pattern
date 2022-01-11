@@ -1,8 +1,8 @@
 <?php
 
-const ROOTPATH = __DIR__;
+const ROOTPATH = __DIR__.'\\app';
 
-require __DIR__.'/app/app.php';
+require ROOTPATH.'/app.php';
 
 App::init();
 App::$kernel->launch();

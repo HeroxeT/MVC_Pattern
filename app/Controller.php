@@ -1,23 +1,19 @@
 <?php
 
-namespace App;
-
-use App;
-
 class Controller
 {
     public function renderLayout($body)
     {
 
         ob_start();
-        require ROOTPATH . '\\app\views\layout\layout.php';
+        require ROOTPATH . '\views\layout\layout.php';
         return ob_get_clean();
 
     }
     public function render($viewName, array $params = [])
     {
 
-        $viewFile = ROOTPATH . '\\app\\views\\' . $viewName . '.php';
+        $viewFile = ROOTPATH . '\views\\' . $viewName . '.php';
         extract($params);
         ob_start();
         require $viewFile;

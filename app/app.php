@@ -18,9 +18,9 @@ class App
 
     public static function bootstrap()
     {
-        static::$router = new App\Router();
-        static::$kernel = new App\Kernel();
-        static::$db = new App\Db();
+        static::$router = new Router();
+        static::$kernel = new Kernel();
+        static::$db = new Db();
 
     }
 
@@ -28,7 +28,7 @@ class App
     {
 
         $className = str_replace('\\', DIRECTORY_SEPARATOR, $className);
-        require_once ROOTPATH . DIRECTORY_SEPARATOR . $className . '.php';
+        require_once ROOTPATH . '\\'. $className . '.php';
 
     }
 
