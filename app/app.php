@@ -2,7 +2,6 @@
 
 
 class App
-
 {
 
     public static $router;
@@ -15,8 +14,6 @@ class App
     {
         spl_autoload_register(['static', 'loadClass']);
         static::bootstrap();
-        set_exception_handler(['App', 'handleException']);
-
     }
 
     public static function bootstrap()

@@ -2,14 +2,10 @@
 
 namespace Controllers;
 
-class Home extends \App\Controller
+class MainController extends \App\Controller
 {
-
-    public function index ()
+    public function index()
     {
-
         return $this->render('home');
-
     }
-
 }

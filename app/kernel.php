@@ -1,27 +1,21 @@
 <?php
-
 namespace App;
-
 use App;
-
 class Kernel
 {
-
-    public $defaultControllerName = 'Home';
+    public $defaultControllerName = 'MainController';
 
     public $defaultActionName = "index";
 
     public function launch()
+
     {
         list($controllerName, $actionName, $params) = App::$router->resolve();
         echo $this->launchAction($controllerName, $actionName, $params);
 
     }
-
-
     public function launchAction($controllerName, $actionName, $params)
     {
-
         $controllerName = empty($controllerName) ? $this->defaultControllerName : ucfirst($controllerName);
         if (!file_exists(ROOTPATH.'\\app\controllers\\'.$controllerName . '.php')) {
         }
@@ -35,6 +29,5 @@ class Kernel
             throw new \App\Exceptions\InvalidRouteException();
         }
         return $controller->$actionName($params);
-
     }
 }
