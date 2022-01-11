@@ -1,6 +1,6 @@
 <?php
 
-define('ROOTPATH', __DIR__);
+const ROOTPATH = __DIR__;
 
 require __DIR__.'/app/app.php';
 
