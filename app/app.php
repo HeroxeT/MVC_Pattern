@@ -10,6 +10,8 @@ class App
 
     public static $kernel;
 
+    public static $dob;
+
     public static function init()
     {
         spl_autoload_register(['static', 'loadClass']);
@@ -20,6 +22,7 @@ class App
     {
         static::$router = new \Base\Router();
         static::$db = new \Base\Db();
+        static::$dob = new \Base\dob();
         static::$kernel = new Kernel();
 
     }

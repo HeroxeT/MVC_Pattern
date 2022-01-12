@@ -24,16 +24,23 @@ class Db
         return $result;
     }
 
-    public function execute($query, array $params=null)
+    public function execute($query, array $params = null)
     {
 
-        if(is_null($params)){
-            $stmt = $this->pdo->query($query);
-            return $stmt->fetchAll();
+        if (is_null($params)) {
+            $db = $this->pdo;
+            if ($db->query($query)) {
+                return ["Success" => $db->fetchAll()];
+            } else {
+                return ["error" => $db->errorInfo()];
+            }
         }
-        $stmt = $this->pdo->prepare($query);
-        $stmt->execute($params);
-        return $stmt->fetchAll();
+        $db = $this->pdo->prepare($query);
+        if ($db->execute($params)) {
+            return ["Success" => $db->fetchAll()];
+        } else {
+            return ["error" => $db->errorInfo()];
+        }
 
     }
 }
